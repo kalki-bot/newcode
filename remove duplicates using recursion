@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+public class Solution {
+
+    static String removeDuplicates(String str, String result) {
+        
+        if (str.length() == 0) {
+            return result;
+        }
+
+        char current = str.charAt(0);
+
+        if (result.indexOf(current) == -1) {
+            result += current;
+        }
+
+        return removeDuplicates(str.substring(1), result);
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+
+        String answer = removeDuplicates(str, "");
+        System.out.println(answer);
+    }
+}
